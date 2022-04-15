@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ mensagem }}</h1>
+  <h1>{{ nomeCompleto }}</h1>
 </template>
 
 <script lang="ts">
@@ -8,7 +8,14 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      mensagem: 'Hello World!'
+      nome: 'Blondie',
+      sobrenome: 'Nami'
+    }
+  },
+  computed: {
+    nomeCompleto(): string {
+      const nomeCompleto = `${this.nome} ${this.sobrenome}`
+      return nomeCompleto
     }
   }
 })
