@@ -1,5 +1,9 @@
 <template>
-  <h1>{{ nomeCompleto }}</h1>
+  <h1>{{ count }}</h1>
+
+  <button @click="increment">incrementar</button>
+  <button @click="decrease">Diminuir</button>
+  <button @click="reset">Resetar</button>
 </template>
 
 <script lang="ts">
@@ -8,14 +12,18 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      nome: 'Blondie',
-      sobrenome: 'Nami'
+      count: 0
     }
   },
-  computed: {
-    nomeCompleto(): string {
-      const nomeCompleto = `${this.nome} ${this.sobrenome}`
-      return nomeCompleto
+  methods: {
+    increment(): void {
+      this.count++
+    },
+    decrease(): void {
+      this.count--
+    },
+    reset(): void {
+      this.count = 0
     }
   }
 })
